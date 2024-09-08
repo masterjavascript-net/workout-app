@@ -17,4 +17,7 @@ const spacing: Spacing = {
   xl: 32,
   xxl: 40,
 };
+
+export type Directions = "top" | "right" | "bottom" | "left";
+
 export { spacing };
