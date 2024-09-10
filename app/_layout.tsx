@@ -1,14 +1,17 @@
-import { Stack } from 'expo-router';
+import AppLayouts from "@/components/AppLayouts.layout";
+import { Stack } from "expo-router";
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name='index'
-        options={{
-          headerShown: false,
-        }}
-      />
-    </Stack>
+    <AppLayouts>
+      <Stack>
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
+    </AppLayouts>
   );
 }
