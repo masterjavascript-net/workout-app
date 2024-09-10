@@ -1,3 +1,4 @@
+import moment from "moment";
 import { border, Border, BorderRadius, BorderWidth } from "./Borders";
 import { ColorsCodes, ColorsKeys, colors } from "./Colors";
 import { fontSize, FontSize, HeadingType, TextType } from "./Fonts";
@@ -61,6 +62,20 @@ const utils = {
       return { fontSize: fontSize[type][size as keyof HeadingType] };
     }
     return { fontSize: fontSize[type][size as keyof TextType] };
+  },
+
+  getTimeOfDay: () => {
+    const currentHour = +moment().format("H");
+
+    if (currentHour >= 5 && currentHour < 12) {
+      return "Morning";
+    } else if (currentHour >= 12 && currentHour < 18) {
+      return "Afternoon";
+    } else if (currentHour >= 18 && currentHour < 21) {
+      return "Evening";
+    } else {
+      return "Night";
+    }
   },
 };
 
