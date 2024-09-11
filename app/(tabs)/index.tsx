@@ -1,9 +1,7 @@
-import AppLayouts from "@/components/AppLayouts.layout";
-import CustomButton from "@/components/CustomButton.component";
-import Header from "@/components/Header.component";
-import SearchBar from "@/components/SearchBar.component";
-import SwitchTab from "@/components/SwitchTab.component";
-import { View, Text } from "react-native";
+import AppLayouts from '@/components/AppLayouts.layout';
+import Header from '@/components/Header.component';
+import { router } from 'expo-router';
+import { View } from 'react-native';
 
 export type User = {
   name: string;
@@ -11,9 +9,9 @@ export type User = {
 };
 
 const user: User = {
-  name: "Eljan",
+  name: 'Eljan',
   avatar:
-    "https://lh3.googleusercontent.com/a/ACg8ocIKlwqLE0abszDaZo3gtxAYewe8FHKHl_em0wK5zknh3VLbpk-A=s192-c-mo",
+    'https://lh3.googleusercontent.com/a/ACg8ocIKlwqLE0abszDaZo3gtxAYewe8FHKHl_em0wK5zknh3VLbpk-A=s192-c-mo',
 };
 
 export type TabItem = {
@@ -23,23 +21,24 @@ export type TabItem = {
 };
 
 const tabItems: TabItem[] = [
-  { index: 1, text: "Workout", iconName: "dumbbell" },
-  { index: 2, text: "Meal", iconName: "utensils" },
+  { index: 1, text: 'Workout', iconName: 'dumbbell' },
+  { index: 2, text: 'Meal', iconName: 'utensils' },
 ];
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "black",
-        paddingHorizontal: 25,
-      }}
-    >
-      {/* 
+    <AppLayouts>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: 'black',
+          paddingHorizontal: 25,
+        }}
+      >
+        {/* 
       <SwitchTab items={tabItems} onTabChange={(index) => {}} />
       */}
-      {/* 
+        {/* 
       <SearchBar
         onSearch={(text) => {
           console.log(text);
@@ -47,8 +46,13 @@ export default function Index() {
         placeholder="Search workout.."
       />
       */}
-      {/* <Header user={user} onPressAvatar={() => {}} /> */}
-      {/* 
+        <Header
+          user={user}
+          onPressAvatar={() => {
+            router.push('../profile');
+          }}
+        />
+        {/* 
       <CustomButton
         onPress={() => {}}
         widthType="auto"
@@ -75,6 +79,7 @@ export default function Index() {
         color="tertiary"
       />
        */}
-    </View>
+      </View>
+    </AppLayouts>
   );
 }
