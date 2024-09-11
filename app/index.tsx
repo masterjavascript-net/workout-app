@@ -1,6 +1,7 @@
 import AppLayouts from "@/components/AppLayouts.layout";
 import CustomButton from "@/components/CustomButton.component";
 import Header from "@/components/Header.component";
+import SearchBar from "@/components/SearchBar.component";
 import { View, Text } from "react-native";
 
 export type User = {
@@ -19,10 +20,20 @@ export default function Index() {
     <View
       style={{
         flex: 1,
+        backgroundColor: "black",
+        paddingHorizontal: 25,
       }}
     >
+      {/* 
+      <SearchBar
+        onSearch={(text) => {
+          console.log(text);
+        }}
+        placeholder="Search workout.."
+      />
+      */}
       {/* <Header user={user} onPressAvatar={() => {}} /> */}
-
+      {/* 
       <CustomButton
         onPress={() => {}}
         widthType="auto"
@@ -31,7 +42,8 @@ export default function Index() {
         label="Save me"
         iconName="forward"
       />
-      {/* 
+      
+    
       <CustomButton
         onPress={() => {}}
         label="Outline"
