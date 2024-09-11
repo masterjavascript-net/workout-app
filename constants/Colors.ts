@@ -29,12 +29,12 @@ export const colors: Colors = {
     600: "#FFFFFF",
   },
   primary: {
-    100: "#00261E",
-    200: "#004D33",
-    300: "#00B859",
-    400: "#38E76B",
-    500: "#97FB9F",
-    600: "#E5FEE5",
+    100: "#303A00", // Darkest shade
+    200: "#606E00", // Darker shade
+    300: "#A6C100", // Medium-dark shade
+    400: "#E1FE0E", // Base color (your main color)
+    500: "#EBFF58", // Lighter shade
+    600: "#F5FF87", // Lightest shade
   },
   secondary: {
     100: "#332000",
