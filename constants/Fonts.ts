@@ -35,3 +35,13 @@ export const fontSize: FontSize = {
     tiny: 10,
   },
 };
+
+export type FontFamily = {
+  normal: string;
+  bold: string;
+};
+
+export const fontFamily: FontFamily = {
+  normal: "Antonio_400Regular",
+  bold: "Antonio_700Bold",
+};

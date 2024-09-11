@@ -1,6 +1,12 @@
 import AppLayouts from '@/components/AppLayouts.layout';
 import Header from '@/components/Header.component';
 import HorizontalCalendar from '@/components/HorizontalCalendar';
+import {
+  Antonio_400Regular,
+  Antonio_700Bold,
+  useFonts,
+} from '@expo-google-fonts/antonio';
+import AppLoading from 'expo-app-loading';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 
@@ -27,6 +33,15 @@ const tabItems: TabItem[] = [
 ];
 
 export default function Index() {
+  const [fontsLoaded] = useFonts({
+    Antonio_400Regular,
+    Antonio_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />; // Wait for fonts to load
+  }
+
   return (
     <AppLayouts>
       <View

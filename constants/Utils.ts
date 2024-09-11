@@ -1,7 +1,7 @@
 import moment from "moment";
 import { border, Border, BorderRadius, BorderWidth } from "./Borders";
 import { ColorsCodes, ColorsKeys, colors } from "./Colors";
-import { fontSize, FontSize, HeadingType, TextType } from "./Fonts";
+import { FontFamily, fontSize, FontSize, HeadingType, TextType } from "./Fonts";
 import { Directions, Spacing, spacing } from "./Spacing";
 
 // utils.js
@@ -34,7 +34,6 @@ const utils = {
         return { margin: spacing[size] };
     }
   },
-
   borderRadius: (size: keyof BorderRadius) => ({
     borderRadius: border.radius[size] || border.radius.none,
   }),
@@ -62,6 +61,17 @@ const utils = {
       return { fontSize: fontSize[type][size as keyof HeadingType] };
     }
     return { fontSize: fontSize[type][size as keyof TextType] };
+  },
+
+  fontFamily: (type: keyof FontFamily) => {
+    if (type === "normal") {
+      return {
+        fontFamily: "Antonio_400Regular",
+      };
+    }
+    return {
+      fontFamily: "Antonio_700Bold",
+    };
   },
 };
 
