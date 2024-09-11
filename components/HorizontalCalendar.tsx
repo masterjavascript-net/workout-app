@@ -22,9 +22,10 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
     >
       <Text
         style={{
-          color: isToday ? colors.background['100'] : colors.background['400'],
+          color: isToday ? colors.background['100'] : colors.background['500'],
           fontWeight: 500,
           fontSize: 14,
+          ...utils.fontFamily('bold'),
         }}
       >
         {weekDay}
@@ -34,6 +35,7 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
           color: isToday ? colors.background['100'] : colors.background['400'],
           fontWeight: 700,
           fontSize: 16,
+          ...utils.fontFamily('normal'),
         }}
       >
         {day}
