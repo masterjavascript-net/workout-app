@@ -1,6 +1,7 @@
-import { colors } from '@/constants/Colors';
-import { DarkTheme, Theme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { colors } from "@/constants/Colors";
+import utils from "@/constants/Utils";
+import { DarkTheme, Theme, ThemeProvider } from "@react-navigation/native";
+import { Stack } from "expo-router";
 
 /**
  * Defines the dark theme for the React Navigation library, with custom colors.
@@ -23,13 +24,19 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={NavigationDarkTheme}>
       <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
-          name='profile'
+          name="profile"
           options={{
             headerShown: true,
-            headerBackTitle: 'Home',
-            title: 'Profile',
+            headerBackTitle: "Home",
+            headerBackTitleStyle: {
+              ...utils.fontFamily("normal"),
+            },
+            title: "Profile",
+            headerTitleStyle: {
+              ...utils.fontFamily("normal"),
+            },
           }}
         />
       </Stack>
