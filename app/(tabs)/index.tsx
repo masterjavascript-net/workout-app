@@ -1,5 +1,6 @@
 import AppLayouts from '@/components/AppLayouts.layout';
 import Header from '@/components/Header.component';
+import HorizontalCalendar from '@/components/HorizontalCalendar';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 
@@ -32,53 +33,16 @@ export default function Index() {
         style={{
           flex: 1,
           backgroundColor: 'black',
-          paddingHorizontal: 25,
+          paddingVertical: 10,
         }}
       >
-        {/* 
-      <SwitchTab items={tabItems} onTabChange={(index) => {}} />
-      */}
-        {/* 
-      <SearchBar
-        onSearch={(text) => {
-          console.log(text);
-        }}
-        placeholder="Search workout.."
-      />
-      */}
         <Header
           user={user}
           onPressAvatar={() => {
             router.push('../profile');
           }}
         />
-        {/* 
-      <CustomButton
-        onPress={() => {}}
-        widthType="auto"
-        color="primary"
-        buttonType="filled"
-        label="Save me"
-        iconName="forward"
-      />
-      
-    
-      <CustomButton
-        onPress={() => {}}
-        label="Outline"
-        widthType="full"
-        buttonType="outline"
-        color="tertiary"
-      />
-
-      <CustomButton
-        onPress={() => {}}
-        label="Nude"
-        widthType="auto"
-        buttonType="nude"
-        color="tertiary"
-      />
-       */}
+        <HorizontalCalendar />
       </View>
     </AppLayouts>
   );
