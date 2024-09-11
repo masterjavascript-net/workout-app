@@ -1,13 +1,14 @@
-import AppLayouts from "@/components/AppLayouts.layout";
-import Header from "@/components/Header.component";
-import { router } from "expo-router";
-import { View } from "react-native";
-import AppLoading from "expo-app-loading";
+import AppLayouts from '@/components/AppLayouts.layout';
+import Header from '@/components/Header.component';
+import HorizontalCalendar from '@/components/HorizontalCalendar';
 import {
-  useFonts,
   Antonio_400Regular,
   Antonio_700Bold,
-} from "@expo-google-fonts/antonio";
+  useFonts,
+} from '@expo-google-fonts/antonio';
+import AppLoading from 'expo-app-loading';
+import { router } from 'expo-router';
+import { View } from 'react-native';
 
 export type User = {
   name: string;
@@ -15,9 +16,9 @@ export type User = {
 };
 
 const user: User = {
-  name: "Eljan",
+  name: 'Eljan',
   avatar:
-    "https://lh3.googleusercontent.com/a/ACg8ocIKlwqLE0abszDaZo3gtxAYewe8FHKHl_em0wK5zknh3VLbpk-A=s192-c-mo",
+    'https://lh3.googleusercontent.com/a/ACg8ocIKlwqLE0abszDaZo3gtxAYewe8FHKHl_em0wK5zknh3VLbpk-A=s192-c-mo',
 };
 
 export type TabItem = {
@@ -27,8 +28,8 @@ export type TabItem = {
 };
 
 const tabItems: TabItem[] = [
-  { index: 1, text: "Workout", iconName: "dumbbell" },
-  { index: 2, text: "Meal", iconName: "utensils" },
+  { index: 1, text: 'Workout', iconName: 'dumbbell' },
+  { index: 2, text: 'Meal', iconName: 'utensils' },
 ];
 
 export default function Index() {
@@ -46,54 +47,17 @@ export default function Index() {
       <View
         style={{
           flex: 1,
-          backgroundColor: "black",
-          paddingHorizontal: 25,
+          backgroundColor: 'black',
+          paddingVertical: 10,
         }}
       >
-        {/* 
-      <SwitchTab items={tabItems} onTabChange={(index) => {}} />
-      */}
-        {/* 
-      <SearchBar
-        onSearch={(text) => {
-          console.log(text);
-        }}
-        placeholder="Search workout.."
-      />
-      */}
         <Header
           user={user}
           onPressAvatar={() => {
-            router.push("../profile");
+            router.push('../profile');
           }}
         />
-        {/* 
-      <CustomButton
-        onPress={() => {}}
-        widthType="auto"
-        color="primary"
-        buttonType="filled"
-        label="Save me"
-        iconName="forward"
-      />
-      
-    
-      <CustomButton
-        onPress={() => {}}
-        label="Outline"
-        widthType="full"
-        buttonType="outline"
-        color="tertiary"
-      />
-
-      <CustomButton
-        onPress={() => {}}
-        label="Nude"
-        widthType="auto"
-        buttonType="nude"
-        color="tertiary"
-      />
-       */}
+        <HorizontalCalendar />
       </View>
     </AppLayouts>
   );
