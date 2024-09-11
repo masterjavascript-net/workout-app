@@ -1,7 +1,7 @@
 import AppLayouts from "@/components/AppLayouts.layout";
+import CustomButton from "@/components/CustomButton.component";
 import Header from "@/components/Header.component";
-import { View } from "react-native";
-import { Image } from "react-native-reanimated/lib/typescript/Animated";
+import { View, Text } from "react-native";
 
 export type User = {
   name: string;
@@ -22,6 +22,32 @@ export default function Index() {
       }}
     >
       {/* <Header user={user} onPressAvatar={() => {}} /> */}
+
+      <CustomButton
+        onPress={() => {}}
+        widthType="auto"
+        color="primary"
+        buttonType="filled"
+        label="Save me"
+        iconName="forward"
+      />
+      {/* 
+      <CustomButton
+        onPress={() => {}}
+        label="Outline"
+        widthType="full"
+        buttonType="outline"
+        color="tertiary"
+      />
+
+      <CustomButton
+        onPress={() => {}}
+        label="Nude"
+        widthType="auto"
+        buttonType="nude"
+        color="tertiary"
+      />
+       */}
     </View>
   );
 }

@@ -10,13 +10,27 @@ interface HeaderProps {
   onPressAvatar: () => void;
 }
 
+const getTimeOfDay = () => {
+  const currentHour = +moment().format("H");
+
+  if (currentHour >= 5 && currentHour < 12) {
+    return "Morning";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    return "Afternoon";
+  } else if (currentHour >= 18 && currentHour < 21) {
+    return "Evening";
+  } else {
+    return "Night";
+  }
+};
+
 const Header = ({ user, onPressAvatar }: HeaderProps) => {
   return (
     <View style={styles.headerContainer}>
       <View>
         <Text style={styles.subtitle}>{moment().format("dddd, D MMM")}</Text>
         <Text style={styles.title}>
-          {utils.getTimeOfDay()}, {user.name} 👋
+          {getTimeOfDay()}, {user.name} 👋
         </Text>
       </View>
       <View>
