@@ -1,5 +1,6 @@
 import { colors } from '@/constants/Colors';
 import utils from '@/constants/Utils';
+import { useSegments } from 'expo-router';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
@@ -45,6 +46,7 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
 };
 
 const HorizontalCalendar = () => {
+  const segments = useSegments();
   const currentDate = moment().toDate();
   const maxDateForCurrentMonth = moment(currentDate).endOf('month').toDate();
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -70,7 +72,7 @@ const HorizontalCalendar = () => {
         animated: true,
       });
     }
-  }, []);
+  }, [segments]);
 
   const handleScrollToIndexFailed = (error: { index: number }) => {
     // Log the error or retry scrolling after a delay
