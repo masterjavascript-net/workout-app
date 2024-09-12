@@ -17,7 +17,7 @@ export type User = {
 const user: User = {
   name: 'Eljan',
   avatar:
-    'https://lh3.googleusercontent.com/a/ACg8ocIKlwqLE0abszDaZo3gtxAYewe8FHKHl_em0wK5zknh3VLbpk-A=s192-c-mo',
+    'https://i.pinimg.com/550x/7a/11/b9/7a11b9f739c130eed437d1a237cc3b7d.jpg',
 };
 
 export type TabItem = {
