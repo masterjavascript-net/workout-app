@@ -1,4 +1,5 @@
 import AppLayouts from '@/components/AppLayouts.layout';
+import CustomSectionHeader from '@/components/CustomSectionHeader';
 import Header from '@/components/Header.component';
 import HorizontalCalendar from '@/components/HorizontalCalendar';
 import {
@@ -6,9 +7,8 @@ import {
   Antonio_700Bold,
   useFonts,
 } from '@expo-google-fonts/antonio';
-import AppLoading from 'expo-app-loading';
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 export type User = {
   name: string;
@@ -18,7 +18,7 @@ export type User = {
 const user: User = {
   name: 'Eljan',
   avatar:
-    'https://lh3.googleusercontent.com/a/ACg8ocIKlwqLE0abszDaZo3gtxAYewe8FHKHl_em0wK5zknh3VLbpk-A=s192-c-mo',
+    'https://i.pinimg.com/550x/7a/11/b9/7a11b9f739c130eed437d1a237cc3b7d.jpg',
 };
 
 export type TabItem = {
@@ -39,7 +39,7 @@ export default function Index() {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />; // Wait for fonts to load
+    return <Text>Loading...</Text>;
   }
 
   return (
@@ -57,6 +57,12 @@ export default function Index() {
           }}
         />
         <HorizontalCalendar />
+        <CustomSectionHeader
+          header="Recommended Workouts"
+          // iconName="arrow-right-long"
+          linkText="See more"
+          onPress={() => {}}
+        />
       </View>
     </AppLayouts>
   );

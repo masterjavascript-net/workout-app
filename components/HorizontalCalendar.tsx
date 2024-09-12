@@ -1,5 +1,6 @@
 import { colors } from '@/constants/Colors';
 import utils from '@/constants/Utils';
+import { useSegments } from 'expo-router';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
@@ -14,7 +15,7 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: isToday ? colors.primary['400'] : 'transparent',
-        paddingHorizontal: 8,
+        paddingHorizontal: 10,
         ...utils.borderRadius('md'),
         height: 55,
         gap: 5,
@@ -45,6 +46,7 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
 };
 
 const HorizontalCalendar = () => {
+  const segments = useSegments();
   const currentDate = moment().toDate();
   const maxDateForCurrentMonth = moment(currentDate).endOf('month').toDate();
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -70,7 +72,7 @@ const HorizontalCalendar = () => {
         animated: true,
       });
     }
-  }, []);
+  }, [segments]);
 
   const handleScrollToIndexFailed = (error: { index: number }) => {
     // Log the error or retry scrolling after a delay
@@ -85,26 +87,34 @@ const HorizontalCalendar = () => {
   };
 
   return (
-    <FlatList
-      ref={flatListRef}
-      data={generateDates()}
-      contentContainerStyle={{
-        height: 60,
-        gap: 15,
+    <View style={styles.flatListContainer}>
+      <FlatList
+        ref={flatListRef}
+        data={generateDates()}
+        contentContainerStyle={{
+          height: 60,
+          gap: 15,
 
-        top: 10,
-      }}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item, index) => index.toString()}
-      onScrollToIndexFailed={handleScrollToIndexFailed}
-      renderItem={({ item }) => (
-        <DateBox day={item} weekDay={getWeekDay(item)} />
-      )}
-    />
+          top: 10,
+        }}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+        onScrollToIndexFailed={handleScrollToIndexFailed}
+        renderItem={({ item }) => (
+          <DateBox day={item} weekDay={getWeekDay(item)} />
+        )}
+      />
+    </View>
   );
 };
 
 export default HorizontalCalendar;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  flatListContainer: {
+    height: 70,
+    alignItems: 'center',
+    ...utils.margin('sm', 'top'),
+  },
+});

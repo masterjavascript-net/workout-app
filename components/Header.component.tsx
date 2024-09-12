@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     // ...utils.backgroundColor("background", "100"),
-    ...utils.padding('sm'),
   },
   subtitle: {
     ...utils.textColor('background', '500'),
