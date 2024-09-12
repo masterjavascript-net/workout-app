@@ -47,7 +47,6 @@ export default function Index() {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'black',
           paddingVertical: 10,
         }}
       >
