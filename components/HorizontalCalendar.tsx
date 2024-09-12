@@ -115,5 +115,6 @@ const styles = StyleSheet.create({
   flatListContainer: {
     height: 70,
     alignItems: 'center',
+    ...utils.margin('sm', 'top'),
   },
 });

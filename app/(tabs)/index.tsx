@@ -1,4 +1,5 @@
 import AppLayouts from '@/components/AppLayouts.layout';
+import CustomSectionHeader from '@/components/CustomSectionHeader';
 import Header from '@/components/Header.component';
 import HorizontalCalendar from '@/components/HorizontalCalendar';
 import {
@@ -46,7 +47,6 @@ export default function Index() {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'black',
           paddingVertical: 10,
         }}
       >
@@ -57,6 +57,12 @@ export default function Index() {
           }}
         />
         <HorizontalCalendar />
+        <CustomSectionHeader
+          header="Recommended Workouts"
+          // iconName="arrow-right-long"
+          linkText="See more"
+          onPress={() => {}}
+        />
       </View>
     </AppLayouts>
   );

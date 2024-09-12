@@ -1,0 +1,60 @@
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import utils from '@/constants/Utils';
+import Icon from 'react-native-vector-icons/FontAwesome6';
+
+interface CustomSectionHeaderProps {
+  header: string;
+  onPress: () => void;
+  linkText?: string;
+  iconName?: string;
+}
+
+const CustomSectionHeader = ({
+  header = 'Workouts',
+  linkText,
+  iconName,
+  onPress,
+}: CustomSectionHeaderProps) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.headerText}>{header}</Text>
+      <TouchableOpacity onPress={onPress} style={styles.linkContainer}>
+        {linkText && <Text style={styles.headerLinkText}>{linkText}</Text>}
+        {iconName && <Icon name={iconName} style={styles.icon} />}
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default CustomSectionHeader;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    ...utils.margin('xxl', 'top'),
+  },
+  headerText: {
+    ...utils.fontSize('heading', 'h4'),
+    ...utils.textColor('background', '600'),
+    ...utils.fontFamily('bold'),
+  },
+
+  headerLinkText: {
+    ...utils.fontSize('text', 'medium'),
+    ...utils.textColor('primary', '400'),
+    ...utils.fontFamily('normal'),
+  },
+
+  linkContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+
+  icon: {
+    ...utils.textColor('primary', '400'),
+  },
+});
