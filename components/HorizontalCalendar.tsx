@@ -85,26 +85,33 @@ const HorizontalCalendar = () => {
   };
 
   return (
-    <FlatList
-      ref={flatListRef}
-      data={generateDates()}
-      contentContainerStyle={{
-        height: 60,
-        gap: 15,
+    <View style={styles.flatListContainer}>
+      <FlatList
+        ref={flatListRef}
+        data={generateDates()}
+        contentContainerStyle={{
+          height: 60,
+          gap: 15,
 
-        top: 10,
-      }}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item, index) => index.toString()}
-      onScrollToIndexFailed={handleScrollToIndexFailed}
-      renderItem={({ item }) => (
-        <DateBox day={item} weekDay={getWeekDay(item)} />
-      )}
-    />
+          top: 10,
+        }}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+        onScrollToIndexFailed={handleScrollToIndexFailed}
+        renderItem={({ item }) => (
+          <DateBox day={item} weekDay={getWeekDay(item)} />
+        )}
+      />
+    </View>
   );
 };
 
 export default HorizontalCalendar;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  flatListContainer: {
+    height: 70,
+    alignItems: 'center',
+  },
+});
