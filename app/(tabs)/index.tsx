@@ -6,9 +6,8 @@ import {
   Antonio_700Bold,
   useFonts,
 } from '@expo-google-fonts/antonio';
-import AppLoading from 'expo-app-loading';
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 export type User = {
   name: string;
@@ -39,7 +38,7 @@ export default function Index() {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />; // Wait for fonts to load
+    return <Text>Loading...</Text>;
   }
 
   return (

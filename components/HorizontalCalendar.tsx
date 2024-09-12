@@ -15,7 +15,7 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: isToday ? colors.primary['400'] : 'transparent',
-        paddingHorizontal: 8,
+        paddingHorizontal: 10,
         ...utils.borderRadius('md'),
         height: 55,
         gap: 5,
