@@ -1,4 +1,5 @@
 import AppLayouts from '@/components/AppLayouts.layout';
+import CustomCardSlider from '@/components/CustomCardSlider.component';
 import CustomSectionHeader from '@/components/CustomSectionHeader';
 import Header from '@/components/Header.component';
 import HorizontalCalendar from '@/components/HorizontalCalendar';
@@ -32,6 +33,37 @@ const tabItems: TabItem[] = [
   { index: 2, text: 'Meal', iconName: 'utensils' },
 ];
 
+export type Workout = {
+  id: string;
+  title: string;
+  exerciseCount: number;
+  imageUrl: string;
+};
+
+const workouts: Workout[] = [
+  {
+    id: '1',
+    title: 'Back Workout',
+    exerciseCount: 5,
+    imageUrl:
+      'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/07/Hands-Clapping-Chaulk-Kettlebell.jpg?quality=86&strip=all',
+  },
+  {
+    id: '2',
+    title: 'Chest Workout',
+    exerciseCount: 4,
+    imageUrl:
+      'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/07/Hands-Clapping-Chaulk-Kettlebell.jpg?quality=86&strip=all',
+  },
+  {
+    id: '3',
+    title: 'Leg Workout',
+    exerciseCount: 6,
+    imageUrl:
+      'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/07/Hands-Clapping-Chaulk-Kettlebell.jpg?quality=86&strip=all',
+  },
+];
+
 export default function Index() {
   const [fontsLoaded] = useFonts({
     Antonio_400Regular,
@@ -46,7 +78,6 @@ export default function Index() {
     <AppLayouts>
       <View
         style={{
-          flex: 1,
           paddingVertical: 10,
         }}
       >
@@ -63,6 +94,15 @@ export default function Index() {
           linkText="See more"
           onPress={() => {}}
         />
+        <CustomCardSlider workouts={workouts} orientation="horizontal" />
+
+        <CustomSectionHeader
+          header="My Workouts"
+          // iconName="arrow-right-long"
+          linkText="See more"
+          onPress={() => {}}
+        />
+        <CustomCardSlider workouts={workouts} orientation="vertical" />
       </View>
     </AppLayouts>
   );
