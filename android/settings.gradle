@@ -44,7 +44,7 @@ if (getRNMinorVersion() >= 75) {
   }
 }
 
-rootProject.name = 'workout-app'
+rootProject.name = 'StayFit'
 
 dependencyResolutionManagement {
   versionCatalogs {
