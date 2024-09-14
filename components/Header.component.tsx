@@ -3,7 +3,7 @@ import utils from '@/constants/Utils';
 import { Image } from 'expo-image';
 import moment from 'moment';
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface HeaderProps {
   user: User;
@@ -34,9 +34,9 @@ const Header = ({ user, onPressAvatar }: HeaderProps) => {
         </Text>
       </View>
       <View>
-        <Pressable onPress={onPressAvatar}>
+        <TouchableOpacity onPress={onPressAvatar}>
           <Image source={user.avatar} style={styles.profile} />
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );
