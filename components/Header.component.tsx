@@ -31,7 +31,7 @@ const Header = ({ user, onPressAvatar }: HeaderProps) => {
       <View>
         <Text style={styles.subtitle}>{moment().format('dddd, D MMM')}</Text>
         <Text style={styles.title}>
-          {getTimeOfDay()}, {addElipsis(user.name, 10)} 👋
+          Good {getTimeOfDay()}, {addElipsis(user.name, 10)} 👋
         </Text>
       </View>
       <View>

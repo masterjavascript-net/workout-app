@@ -3,6 +3,7 @@ import CustomCardSlider from '@/components/CustomCardSlider.component';
 import CustomSectionHeader from '@/components/CustomSectionHeader';
 import Header from '@/components/Header.component';
 import HorizontalCalendar from '@/components/HorizontalCalendar';
+import GraphWidget from '@/components/widgets/GraphWidget';
 import {
   Antonio_400Regular,
   Antonio_700Bold,
@@ -90,6 +91,12 @@ export default function Index() {
           }}
         />
         <HorizontalCalendar />
+        <CustomSectionHeader
+          header='Widgets'
+          iconName='setting'
+          onPress={() => {}}
+        />
+        <GraphWidget />
         <CustomSectionHeader
           header='Recommended Workouts'
           // iconName="arrow-right-long"
