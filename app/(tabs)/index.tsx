@@ -9,7 +9,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/antonio';
 import { router } from 'expo-router';
-import { Text, View } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 
 export type User = {
   name: string;
@@ -17,9 +17,9 @@ export type User = {
 };
 
 const user: User = {
-  name: 'Eljan',
+  name: 'John',
   avatar:
-    'https://i.pinimg.com/550x/7a/11/b9/7a11b9f739c130eed437d1a237cc3b7d.jpg',
+    'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 };
 
 export type TabItem = {
@@ -43,24 +43,24 @@ export type Workout = {
 const workouts: Workout[] = [
   {
     id: '1',
-    title: 'Back Workout',
+    title: 'Advanced Back Workout',
     exerciseCount: 5,
     imageUrl:
-      'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/07/Hands-Clapping-Chaulk-Kettlebell.jpg?quality=86&strip=all',
+      'https://images.unsplash.com/photo-1603287681836-b174ce5074c2?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: '2',
-    title: 'Chest Workout',
+    title: 'Begineer Chest Workout',
     exerciseCount: 4,
     imageUrl:
-      'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/07/Hands-Clapping-Chaulk-Kettlebell.jpg?quality=86&strip=all',
+      'https://images.unsplash.com/photo-1604480133080-602261a680df?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: '3',
-    title: 'Leg Workout',
+    title: 'Advanced Leg Workout',
     exerciseCount: 6,
     imageUrl:
-      'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/07/Hands-Clapping-Chaulk-Kettlebell.jpg?quality=86&strip=all',
+      'https://images.unsplash.com/photo-1541600383005-565c949cf777?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
 ];
 
@@ -76,11 +76,12 @@ export default function Index() {
 
   return (
     <AppLayouts>
-      <View
+      <ScrollView
         style={{
           flex: 1,
           paddingVertical: 10,
         }}
+        showsVerticalScrollIndicator={false}
       >
         <Header
           user={user}
@@ -90,21 +91,21 @@ export default function Index() {
         />
         <HorizontalCalendar />
         <CustomSectionHeader
-          header="Recommended Workouts"
+          header='Recommended Workouts'
           // iconName="arrow-right-long"
-          linkText="See more"
+          linkText='See more'
           onPress={() => {}}
         />
-        <CustomCardSlider workouts={workouts} orientation="horizontal" />
+        <CustomCardSlider workouts={workouts} orientation='horizontal' />
 
         <CustomSectionHeader
-          header="My Workouts"
+          header='My Workouts'
           // iconName="arrow-right-long"
-          linkText="See more"
+          linkText='See more'
           onPress={() => {}}
         />
-        <CustomCardSlider workouts={workouts} orientation="vertical" />
-      </View>
+        <CustomCardSlider workouts={workouts} orientation='none' />
+      </ScrollView>
     </AppLayouts>
   );
 }

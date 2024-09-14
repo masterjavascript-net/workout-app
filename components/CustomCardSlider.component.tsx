@@ -1,11 +1,16 @@
-import { FlatList, StyleSheet, Text, View, Dimensions } from 'react-native';
-import React from 'react';
 import { Workout } from '@/app/(tabs)';
+import { colors } from '@/constants/Colors';
 import utils from '@/constants/Utils';
 import { Image } from 'expo-image';
+import React from 'react';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
-const { width } = Dimensions.get('window');
 
 interface CustomCardProps {
   workout: Workout;
@@ -14,35 +19,41 @@ interface CustomCardProps {
 
 const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
   return (
-    <View
+    <TouchableOpacity
       style={[
         styles.card,
         isHorizontal
           ? { width: 175, height: 175 }
           : { width: '100%', height: 175 },
       ]}
+      onPress={() => {}}
     >
-      <Image source={workout.imageUrl} style={styles.cardImage} />
+      <Image
+        source={workout.imageUrl}
+        style={{
+          ...styles.cardImage,
+        }}
+      />
       <View style={styles.overlay}>
         <Text style={styles.title}>{workout.title}</Text>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            gap: 10,
+            gap: 5,
           }}
         >
-          <Icon name="dumbbell" size={14} color={'#fff'} />
+          <Icon name='dumbbell' size={14} color={colors.primary['500']} />
           <Text style={styles.infoCard}>{workout.exerciseCount} Exercises</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 interface CustomCardSliderProps {
   workouts: Workout[];
-  orientation: string;
+  orientation: 'horizontal' | 'vertical' | 'none';
 }
 
 const CustomCardSlider = ({ workouts, orientation }: CustomCardSliderProps) => {
@@ -50,15 +61,31 @@ const CustomCardSlider = ({ workouts, orientation }: CustomCardSliderProps) => {
 
   return (
     <View style={[styles.cardSliderContainer, !isHorizontal && { flex: 1 }]}>
-      <FlatList
-        data={workouts}
-        renderItem={({ item }) => (
-          <CustomCard workout={item} isHorizontal={isHorizontal} />
-        )}
-        horizontal={isHorizontal}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      />
+      {orientation === 'none' ? (
+        <View
+          style={{
+            paddingBottom: 25,
+          }}
+        >
+          {workouts.map((workout) => (
+            <CustomCard
+              workout={workout}
+              isHorizontal={isHorizontal}
+              key={workout.id}
+            />
+          ))}
+        </View>
+      ) : (
+        <FlatList
+          data={workouts}
+          renderItem={({ item }) => (
+            <CustomCard workout={item} isHorizontal={isHorizontal} />
+          )}
+          horizontal={isHorizontal}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
     </View>
   );
 };
@@ -78,23 +105,28 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute', // Image takes up the entire card
+    resizeMode: 'cover', // Image is centered
   },
   overlay: {
     flex: 1,
     justifyContent: 'flex-end', // Position the text at the bottom
-    backgroundColor: 'rgba(37, 53, 28, 0.6)', // Dark transparent overlay for text
-    ...utils.padding('xl', 'left'),
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark transparent overlay for text
+    ...utils.padding('md', 'left'),
     ...utils.padding('md', 'bottom'),
   },
   title: {
     letterSpacing: 1.5,
     ...utils.margin('md', 'bottom'),
     ...utils.textColor('background', '600'),
-    ...utils.fontSize('heading', 'h3'),
+    ...utils.fontSize('heading', 'h5'),
     ...utils.fontFamily('bold'),
+    position: 'absolute',
+    top: 15,
+    left: 10,
   },
   infoCard: {
-    ...utils.textColor('background', '600'),
+    ...utils.textColor('primary', '500'),
     ...utils.fontFamily('normal'),
+    ...utils.fontSize('text', 'small'),
   },
 });

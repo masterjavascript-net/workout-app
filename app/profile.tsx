@@ -5,7 +5,7 @@ import { StyleSheet, Text } from 'react-native';
 const Profile = () => {
   return (
     <AppLayouts>
-      <Text>Profile</Text>
+      <Text></Text>
     </AppLayouts>
   );
 };

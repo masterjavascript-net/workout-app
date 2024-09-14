@@ -1,9 +1,10 @@
 import { User } from '@/app/(tabs)';
 import utils from '@/constants/Utils';
+import { addElipsis } from '@/textUtils';
 import { Image } from 'expo-image';
 import moment from 'moment';
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface HeaderProps {
   user: User;
@@ -30,13 +31,13 @@ const Header = ({ user, onPressAvatar }: HeaderProps) => {
       <View>
         <Text style={styles.subtitle}>{moment().format('dddd, D MMM')}</Text>
         <Text style={styles.title}>
-          {getTimeOfDay()}, {user.name} 👋
+          {getTimeOfDay()}, {addElipsis(user.name, 10)} 👋
         </Text>
       </View>
       <View>
-        <Pressable onPress={onPressAvatar}>
+        <TouchableOpacity onPress={onPressAvatar}>
           <Image source={user.avatar} style={styles.profile} />
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    ...utils.fontSize('heading', 'h1'),
+    ...utils.fontSize('heading', 'h2'),
     ...utils.fontFamily('bold'),
   },
   profile: {

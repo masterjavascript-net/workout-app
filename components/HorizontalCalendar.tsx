@@ -1,29 +1,43 @@
 import { colors } from '@/constants/Colors';
 import utils from '@/constants/Utils';
+import { useGeneralAppStore } from '@/stores/useGeneralAppStore';
 import { useSegments } from 'expo-router';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
-  const toDay = moment().date();
-  const isToday = toDay === day;
-
+const DateBox = ({
+  day,
+  weekDay,
+  selectedDay,
+  setSelectedDay,
+}: {
+  day: number;
+  weekDay: string;
+  selectedDay: number | null;
+  setSelectedDay: (day: number) => void;
+}) => {
   return (
-    <View
+    <Pressable
+      onPress={() => setSelectedDay(day)}
       style={{
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: isToday ? colors.primary['400'] : 'transparent',
+        backgroundColor:
+          selectedDay === day ? colors.primary['400'] : 'transparent',
         paddingHorizontal: 10,
         ...utils.borderRadius('md'),
         height: 55,
-        gap: 5,
+        width: 44,
+        gap: 3,
       }}
     >
       <Text
         style={{
-          color: isToday ? colors.background['100'] : colors.background['500'],
+          color:
+            selectedDay === day
+              ? colors.background['100']
+              : colors.background['500'],
           fontWeight: 500,
           fontSize: 14,
           ...utils.fontFamily('bold'),
@@ -33,7 +47,10 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
       </Text>
       <Text
         style={{
-          color: isToday ? colors.background['100'] : colors.background['400'],
+          color:
+            selectedDay === day
+              ? colors.background['100']
+              : colors.background['400'],
           fontWeight: 700,
           fontSize: 16,
           ...utils.fontFamily('normal'),
@@ -41,7 +58,7 @@ const DateBox = ({ day, weekDay }: { day: number; weekDay: string }) => {
       >
         {day}
       </Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -58,6 +75,14 @@ const HorizontalCalendar = () => {
     }
     return dates;
   };
+
+  const {
+    currentWorkoutDay: selectedDay,
+    setCurrentWorkoutDay: setSelectedDay,
+  } = useGeneralAppStore((state) => ({
+    currentWorkoutDay: state.currentWorkoutDay,
+    setCurrentWorkoutDay: state.setCurrentWorkoutDay,
+  }));
 
   const getWeekDay = (date: number) => {
     const newDate = new Date(currentDate);
@@ -93,8 +118,7 @@ const HorizontalCalendar = () => {
         data={generateDates()}
         contentContainerStyle={{
           height: 60,
-          gap: 15,
-
+          gap: 10,
           top: 10,
         }}
         horizontal
@@ -102,7 +126,12 @@ const HorizontalCalendar = () => {
         keyExtractor={(item, index) => index.toString()}
         onScrollToIndexFailed={handleScrollToIndexFailed}
         renderItem={({ item }) => (
-          <DateBox day={item} weekDay={getWeekDay(item)} />
+          <DateBox
+            day={item}
+            weekDay={getWeekDay(item)}
+            selectedDay={selectedDay}
+            setSelectedDay={setSelectedDay}
+          />
         )}
       />
     </View>
@@ -115,6 +144,6 @@ const styles = StyleSheet.create({
   flatListContainer: {
     height: 70,
     alignItems: 'center',
-    ...utils.margin('sm', 'top'),
+    ...utils.margin('md', 'top'),
   },
 });

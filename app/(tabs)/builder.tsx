@@ -5,7 +5,7 @@ import { StyleSheet, Text } from 'react-native';
 const Builder = () => {
   return (
     <AppLayouts>
-      <Text>Builder</Text>
+      <Text></Text>
     </AppLayouts>
   );
 };

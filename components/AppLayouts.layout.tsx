@@ -8,7 +8,7 @@ const AppLayouts = ({ children }: { children: React.ReactNode }) => {
     <SafeAreaView
       style={{ flex: 1, ...utils.backgroundColor('background', '100') }}
     >
-      <StatusBar style="light" />
+      <StatusBar style='light' />
       <View style={styles.container}>{children}</View>
     </SafeAreaView>
   );
