@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
 import utils from '@/constants/Utils';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
 interface CustomSectionHeaderProps {
@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
     ...utils.margin('xxl', 'top'),
   },
   headerText: {
-    ...utils.fontSize('heading', 'h4'),
+    ...utils.fontSize('heading', 'h6'),
     ...utils.textColor('background', '600'),
     ...utils.fontFamily('bold'),
   },
 
   headerLinkText: {
-    ...utils.fontSize('text', 'medium'),
-    ...utils.textColor('primary', '400'),
+    ...utils.fontSize('text', 'small'),
+    ...utils.textColor('accent', '400'),
     ...utils.fontFamily('normal'),
   },
 

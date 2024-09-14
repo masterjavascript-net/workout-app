@@ -5,7 +5,7 @@ import { StyleSheet, Text } from 'react-native';
 const Explore = () => {
   return (
     <AppLayouts>
-      <Text>Explore</Text>
+      <Text></Text>
     </AppLayouts>
   );
 };

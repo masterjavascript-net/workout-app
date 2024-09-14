@@ -4,7 +4,6 @@ import utils from '@/constants/Utils';
 import { Image } from 'expo-image';
 import React from 'react';
 import {
-  Dimensions,
   FlatList,
   StyleSheet,
   Text,
@@ -12,8 +11,6 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
-const { width } = Dimensions.get('window');
 
 interface CustomCardProps {
   workout: Workout;
@@ -121,7 +118,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
     ...utils.margin('md', 'bottom'),
     ...utils.textColor('background', '600'),
-    ...utils.fontSize('heading', 'h3'),
+    ...utils.fontSize('heading', 'h5'),
     ...utils.fontFamily('bold'),
     position: 'absolute',
     top: 15,
@@ -130,5 +127,6 @@ const styles = StyleSheet.create({
   infoCard: {
     ...utils.textColor('primary', '500'),
     ...utils.fontFamily('normal'),
+    ...utils.fontSize('text', 'small'),
   },
 });

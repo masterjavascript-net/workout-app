@@ -43,21 +43,21 @@ export type Workout = {
 const workouts: Workout[] = [
   {
     id: '1',
-    title: 'Back Workout',
+    title: 'Advanced Back Workout',
     exerciseCount: 5,
     imageUrl:
       'https://images.unsplash.com/photo-1603287681836-b174ce5074c2?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: '2',
-    title: 'Chest Workout',
+    title: 'Begineer Chest Workout',
     exerciseCount: 4,
     imageUrl:
       'https://images.unsplash.com/photo-1604480133080-602261a680df?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: '3',
-    title: 'Leg Workout',
+    title: 'Advanced Leg Workout',
     exerciseCount: 6,
     imageUrl:
       'https://images.unsplash.com/photo-1541600383005-565c949cf777?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
