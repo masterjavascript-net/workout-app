@@ -1,7 +1,7 @@
 import utils from '@/constants/Utils';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome6';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 interface CustomSectionHeaderProps {
   header: string;
@@ -21,7 +21,7 @@ const CustomSectionHeader = ({
       <Text style={styles.headerText}>{header}</Text>
       <TouchableOpacity onPress={onPress} style={styles.linkContainer}>
         {linkText && <Text style={styles.headerLinkText}>{linkText}</Text>}
-        {iconName && <Icon name={iconName} style={styles.icon} />}
+        {iconName && <Icon name={iconName} style={styles.icon} size={18} />}
       </TouchableOpacity>
     </View>
   );
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...utils.margin('xxl', 'top'),
+    ...utils.margin('lg', 'top'),
   },
   headerText: {
-    ...utils.fontSize('heading', 'h6'),
+    ...utils.fontSize('heading', 'h5'),
     ...utils.textColor('background', '600'),
     ...utils.fontFamily('bold'),
   },
@@ -55,6 +55,6 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    ...utils.textColor('primary', '400'),
+    ...utils.textColor('accent', '400'),
   },
 });
