@@ -78,6 +78,7 @@ export default function Index() {
     <AppLayouts>
       <View
         style={{
+          flex: 1,
           paddingVertical: 10,
         }}
       >
