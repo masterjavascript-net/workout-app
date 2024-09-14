@@ -32,7 +32,7 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
             gap: 10,
           }}
         >
-          <Icon name="dumbbell" size={14} color={'#fff '} />
+          <Icon name="dumbbell" size={14} color={'#fff'} />
           <Text style={styles.infoCard}>{workout.exerciseCount} Exercises</Text>
         </View>
       </View>
@@ -49,15 +49,17 @@ const CustomCardSlider = ({ workouts, orientation }: CustomCardSliderProps) => {
   const isHorizontal = orientation === 'horizontal';
 
   return (
-    <FlatList
-      style={styles.cardSliderContainer}
-      data={workouts}
-      renderItem={({ item }) => (
-        <CustomCard workout={item} isHorizontal={isHorizontal} />
-      )}
-      horizontal={isHorizontal}
-      showsHorizontalScrollIndicator={false}
-    />
+    <View style={[styles.cardSliderContainer, !isHorizontal && { flex: 1 }]}>
+      <FlatList
+        data={workouts}
+        renderItem={({ item }) => (
+          <CustomCard workout={item} isHorizontal={isHorizontal} />
+        )}
+        horizontal={isHorizontal}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
   );
 };
 
@@ -67,8 +69,6 @@ const styles = StyleSheet.create({
   cardSliderContainer: {},
 
   card: {
-    width: 175, // Adjust size to match the design
-    height: 175,
     overflow: 'hidden',
     ...utils.borderRadius('lg'),
     ...utils.margin('lg', 'top'),
