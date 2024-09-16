@@ -2,6 +2,7 @@ import { Workout } from '@/app/(tabs)';
 import { colors } from '@/constants/Colors';
 import utils from '@/constants/Utils';
 import { Image } from 'expo-image';
+import { router } from 'expo-router';
 import React from 'react';
 import {
   FlatList,
@@ -26,7 +27,12 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
           ? { width: 175, height: 175 }
           : { width: '100%', height: 175 },
       ]}
-      onPress={() => {}}
+      onPress={() =>
+        router.push({
+          pathname: '/details',
+          params: { workoutId: workout.id },
+        })
+      }
     >
       <Image
         source={workout.imageUrl}
@@ -43,7 +49,7 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
             gap: 5,
           }}
         >
-          <Icon name='dumbbell' size={14} color={colors.primary['500']} />
+          <Icon name="dumbbell" size={14} color={colors.primary['500']} />
           <Text style={styles.infoCard}>{workout.exerciseCount} Exercises</Text>
         </View>
       </View>

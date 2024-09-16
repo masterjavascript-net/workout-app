@@ -24,9 +24,9 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={NavigationDarkTheme}>
       <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
-          name='profile'
+          name="profile"
           options={{
             headerShown: true,
             headerBackTitle: 'Home',
@@ -34,6 +34,19 @@ export default function RootLayout() {
               ...utils.fontFamily('normal'),
             },
             title: 'Profile',
+            headerTitleStyle: {
+              ...utils.fontFamily('normal'),
+            },
+          }}
+        />
+        <Stack.Screen
+          name="details"
+          options={{
+            headerShown: false,
+            headerBackTitleStyle: {
+              ...utils.fontFamily('normal'),
+            },
+            title: 'Details',
             headerTitleStyle: {
               ...utils.fontFamily('normal'),
             },
