@@ -19,6 +19,6 @@ export default AppLayouts;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16, // Sol ve sağdan 16dp boşluk
+    // paddingHorizontal: 16, // Sol ve sağdan 16dp boşluk
   },
 });
