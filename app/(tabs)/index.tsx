@@ -92,26 +92,26 @@ export default function Index() {
         />
         <HorizontalCalendar />
         <CustomSectionHeader
-          header="Widgets"
-          iconName="setting"
+          header='Widgets'
+          iconName='setting'
           onPress={() => {}}
         />
         <GraphWidget />
         <CustomSectionHeader
-          header="Recommended Workouts"
+          header='Recommended Workouts'
           // iconName="arrow-right-long"
-          linkText="See more"
+          linkText='See more'
           onPress={() => {}}
         />
-        <CustomCardSlider workouts={workouts} orientation="horizontal" />
+        <CustomCardSlider workouts={workouts} orientation='horizontal' />
 
         <CustomSectionHeader
-          header="My Workouts"
+          header='My Workouts'
           // iconName="arrow-right-long"
-          linkText="See more"
+          linkText='See more'
           onPress={() => {}}
         />
-        <CustomCardSlider workouts={workouts} orientation="none" />
+        <CustomCardSlider workouts={workouts} orientation='none' />
       </ScrollView>
     </AppLayouts>
   );

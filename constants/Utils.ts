@@ -1,20 +1,20 @@
-import moment from "moment";
-import { border, Border, BorderRadius, BorderWidth } from "./Borders";
-import { ColorsCodes, ColorsKeys, colors } from "./Colors";
-import { FontFamily, fontSize, FontSize, HeadingType, TextType } from "./Fonts";
-import { Directions, Spacing, spacing } from "./Spacing";
+import moment from 'moment';
+import { border, Border, BorderRadius, BorderWidth } from './Borders';
+import { ColorsCodes, ColorsKeys, colors } from './Colors';
+import { FontFamily, fontSize, FontSize, HeadingType, TextType } from './Fonts';
+import { Directions, Spacing, spacing } from './Spacing';
 
 // utils.js
 const utils = {
   padding: (size: keyof Spacing, direction?: Directions) => {
     switch (direction) {
-      case "top":
+      case 'top':
         return { paddingTop: spacing[size] };
-      case "bottom":
+      case 'bottom':
         return { paddingBottom: spacing[size] };
-      case "left":
+      case 'left':
         return { paddingLeft: spacing[size] };
-      case "right":
+      case 'right':
         return { paddingRight: spacing[size] };
       default:
         return { padding: spacing[size] };
@@ -22,13 +22,13 @@ const utils = {
   },
   margin: (size: keyof Spacing, direction?: Directions) => {
     switch (direction) {
-      case "top":
+      case 'top':
         return { marginTop: spacing[size] };
-      case "bottom":
+      case 'bottom':
         return { marginBottom: spacing[size] };
-      case "left":
+      case 'left':
         return { marginLeft: spacing[size] };
-      case "right":
+      case 'right':
         return { marginRight: spacing[size] };
       default:
         return { margin: spacing[size] };
@@ -57,20 +57,20 @@ const utils = {
     type: keyof FontSize,
     size: keyof HeadingType | keyof TextType
   ) => {
-    if (type === "heading") {
+    if (type === 'heading') {
       return { fontSize: fontSize[type][size as keyof HeadingType] };
     }
     return { fontSize: fontSize[type][size as keyof TextType] };
   },
 
   fontFamily: (type: keyof FontFamily) => {
-    if (type === "normal") {
+    if (type === 'normal') {
       return {
-        fontFamily: "Antonio_400Regular",
+        fontFamily: 'Antonio_400Regular',
       };
     }
     return {
-      fontFamily: "Antonio_700Bold",
+      fontFamily: 'Antonio_700Bold',
     };
   },
 };

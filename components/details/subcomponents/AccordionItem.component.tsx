@@ -18,6 +18,13 @@ const AccordionItem = (item: Exercise) => {
     setSelectedItem(selectedItem === item.id ? null : item.id);
   };
 
+  // const renderExerciseSet = () => {
+  //   for (let index = 0; index < item.setCount; index++) {
+  //     return;
+  //     <View></View>;
+  //   }
+  // };
+
   return (
     <View
       style={[
@@ -31,7 +38,9 @@ const AccordionItem = (item: Exercise) => {
           <Image source={{ uri: item.image }} style={styles.exerciseImage} />
           <View style={styles.exerciseInfo}>
             <Text style={styles.exerciseName}>{item.name}</Text>
-            <Text style={styles.exerciseDuration}>{item.duration}</Text>
+            <Text style={styles.exerciseExtraInfo}>
+              💪🏽 {item.setCount} sets
+            </Text>
           </View>
           <TouchableOpacity>
             <Icon name='play-outline' size={25} color='#fff' />
@@ -41,7 +50,26 @@ const AccordionItem = (item: Exercise) => {
 
       {selectedItem === item.id && (
         <View style={styles.dropdownContainer}>
-          <Text>3x12</Text>
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+            <Text>1</Text>
+            <Text>{item.repCount} Reps</Text>
+          </View>
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+            <Text>X</Text>
+            <Text>00:{item.restTime} REST</Text>
+          </View>
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+            <Text>2</Text>
+            <Text>{item.repCount} Reps</Text>
+          </View>
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+            <Text>X</Text>
+            <Text>00:{item.restTime} REST</Text>
+          </View>
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+            <Text>3</Text>
+            <Text>{item.repCount} Reps</Text>
+          </View>
         </View>
       )}
     </View>
@@ -56,7 +84,7 @@ const styles = StyleSheet.create({
   selectedExercise: {
     borderRadius: 10,
     // backgroundColor: 'grey',
-    ...utils.backgroundColor('background', '500'),
+    ...utils.backgroundColor('primary', '100'),
   },
 
   exerciseItem: {
@@ -79,8 +107,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
   },
-  exerciseDuration: {
-    color: '#999',
+  exerciseExtraInfo: {
+    marginTop: 5,
+    ...utils.textColor('background', '500'),
   },
   dropdownContainer: {
     // position: 'absolute',
