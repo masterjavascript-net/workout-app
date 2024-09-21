@@ -47,9 +47,7 @@ const HeaderSection = ({
         </View>
 
         <View style={styles.workoutInfo}>
-          <Text style={styles.title}>
-            Chest Workout Chest Workout Chest Workout
-          </Text>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.badgeList}>
             <View style={styles.badgeItem}>
               <Icon
@@ -57,7 +55,7 @@ const HeaderSection = ({
                 size={18}
                 color={colors.primary['400']}
               />
-              <Text style={styles.badgeText}>10 Exercise</Text>
+              <Text style={styles.badgeText}>{exerciseCount} Exercise</Text>
             </View>
           </View>
 
