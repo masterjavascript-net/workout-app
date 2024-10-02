@@ -10,7 +10,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/antonio';
 import { router } from 'expo-router';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView, Text, View, StyleSheet } from 'react-native';
 
 export type User = {
   name: string;
@@ -96,35 +96,43 @@ export default function Index() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Header
-          user={user}
-          onPressAvatar={() => {
-            router.push('../profile');
-          }}
-        />
-        <HorizontalCalendar />
-        <CustomSectionHeader
-          header='Widgets'
-          iconName='setting'
-          onPress={() => {}}
-        />
-        <GraphWidget />
-        <CustomSectionHeader
-          header='Recommended Workouts'
-          // iconName="arrow-right-long"
-          linkText='See more'
-          onPress={() => {}}
-        />
-        <CustomCardSlider workouts={workouts} orientation='horizontal' />
+        <View style={styles.container}>
+          <Header
+            user={user}
+            onPressAvatar={() => {
+              router.push('../profile');
+            }}
+          />
+          <HorizontalCalendar />
+          <CustomSectionHeader
+            header='Widgets'
+            iconName='setting'
+            onPress={() => {}}
+          />
+          <GraphWidget />
+          <CustomSectionHeader
+            header='Recommended Workouts'
+            // iconName="arrow-right-long"
+            linkText='See more'
+            onPress={() => {}}
+          />
+          <CustomCardSlider workouts={workouts} orientation='horizontal' />
 
-        <CustomSectionHeader
-          header='My Workouts'
-          // iconName="arrow-right-long"
-          linkText='See more'
-          onPress={() => {}}
-        />
-        <CustomCardSlider workouts={workouts} orientation='none' />
+          <CustomSectionHeader
+            header='My Workouts'
+            // iconName="arrow-right-long"
+            linkText='See more'
+            onPress={() => {}}
+          />
+          <CustomCardSlider workouts={workouts} orientation='none' />
+        </View>
       </ScrollView>
     </AppLayouts>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+  },
+});

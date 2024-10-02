@@ -134,6 +134,7 @@ const GraphWidget = () => {
           alignItems: 'center',
           ...utils.margin('sm', 'top'),
           ...utils.padding('lg', 'right'),
+          overflow: 'hidden',
         }}
       >
         {renderGraphByType(selectedItem)}
