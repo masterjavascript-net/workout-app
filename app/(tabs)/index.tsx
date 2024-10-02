@@ -39,6 +39,7 @@ export type Workout = {
   title: string;
   exerciseCount: number;
   imageUrl: string;
+  category: string;
 };
 
 export const workouts: Workout[] = [
@@ -48,6 +49,7 @@ export const workouts: Workout[] = [
     exerciseCount: 5,
     imageUrl:
       'https://images.unsplash.com/photo-1603287681836-b174ce5074c2?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: 'Back',
   },
   {
     id: '2',
@@ -55,13 +57,23 @@ export const workouts: Workout[] = [
     exerciseCount: 4,
     imageUrl:
       'https://images.unsplash.com/photo-1604480133080-602261a680df?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: 'Chest',
   },
   {
     id: '3',
+    title: 'Advanced ABS Workout',
+    exerciseCount: 6,
+    imageUrl:
+      'https://images.unsplash.com/photo-1541600383005-565c949cf777?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: 'ABS',
+  },
+  {
+    id: '4',
     title: 'Advanced Leg Workout',
     exerciseCount: 6,
     imageUrl:
       'https://images.unsplash.com/photo-1541600383005-565c949cf777?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: 'Leg',
   },
 ];
 

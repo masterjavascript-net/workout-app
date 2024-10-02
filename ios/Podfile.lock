@@ -13,7 +13,7 @@ PODS:
     - ExpoModulesCore
   - ExpoHead (3.5.23):
     - ExpoModulesCore
-  - ExpoImage (1.12.15):
+  - ExpoImage (1.13.0):
     - ExpoModulesCore
     - libavif/libdav1d
     - SDWebImage (~> 5.19.1)
@@ -1607,7 +1607,7 @@ SPEC CHECKSUMS:
   ExpoFileSystem: 80bfe850b1f9922c16905822ecbf97acd711dc51
   ExpoFont: 00756e6c796d8f7ee8d211e29c8b619e75cbf238
   ExpoHead: fcb28a68ed4ba28f177394d2dfb8a0a8824cd103
-  ExpoImage: f77df382153d716f332f974438a803c4527f60b0
+  ExpoImage: 42162e3d264ce07a62766d6bd26bd299fe4c6faa
   ExpoKeepAwake: 3b8815d9dd1d419ee474df004021c69fdd316d08
   ExpoLinearGradient: 8cec4a09426d8934c433e83cb36262d72c667fce
   ExpoModulesCore: f30a203ff1863bab3dd9f4421e7fc1564797f18a
