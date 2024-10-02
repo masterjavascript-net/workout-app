@@ -1,7 +1,14 @@
 import moment from 'moment';
 import { border, Border, BorderRadius, BorderWidth } from './Borders';
 import { ColorsCodes, ColorsKeys, colors } from './Colors';
-import { FontFamily, fontSize, FontSize, HeadingType, TextType } from './Fonts';
+import {
+  fontSize,
+  FontSize,
+  HeadingType,
+  TextType,
+  FontWeight,
+  FontType,
+} from './Fonts';
 import { Directions, Spacing, spacing } from './Spacing';
 
 // utils.js
@@ -63,15 +70,15 @@ const utils = {
     return { fontSize: fontSize[type][size as keyof TextType] };
   },
 
-  fontFamily: (type: keyof FontFamily) => {
-    if (type === 'normal') {
-      return {
-        fontFamily: 'Antonio_400Regular',
-      };
+  fontFamily: (type: keyof FontType, weight: keyof FontWeight) => {
+    switch (type) {
+      case 'heading':
+        if (weight === 'normal') return { fontFamily: 'lato' };
+        if (weight === 'bold') return { fontFamily: 'lato-bold' };
+      case 'text':
+        if (weight === 'normal') return { fontFamily: 'lusitana' };
+        if (weight === 'bold') return { fontFamily: 'lusitana-bold' };
     }
-    return {
-      fontFamily: 'Antonio_700Bold',
-    };
   },
 };
 

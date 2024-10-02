@@ -34,18 +34,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...utils.margin('lg', 'top'),
+    ...utils.margin('md', 'top'),
   },
+
   headerText: {
     ...utils.fontSize('heading', 'h5'),
     ...utils.textColor('background', '600'),
-    ...utils.fontFamily('bold'),
+    ...utils.fontFamily('heading', 'bold'),
   },
 
   headerLinkText: {
     ...utils.fontSize('text', 'small'),
     ...utils.textColor('accent', '400'),
-    ...utils.fontFamily('normal'),
+    ...utils.fontFamily('heading', 'normal'),
   },
 
   linkContainer: {

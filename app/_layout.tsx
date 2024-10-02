@@ -31,11 +31,11 @@ export default function RootLayout() {
             headerShown: true,
             headerBackTitle: 'Home',
             headerBackTitleStyle: {
-              ...utils.fontFamily('normal'),
+              ...utils.fontFamily('heading', 'normal'),
             },
             title: 'Profile',
             headerTitleStyle: {
-              ...utils.fontFamily('normal'),
+              ...utils.fontFamily('heading', 'normal'),
             },
           }}
         />
@@ -44,11 +44,11 @@ export default function RootLayout() {
           options={{
             headerShown: false,
             headerBackTitleStyle: {
-              ...utils.fontFamily('normal'),
+              ...utils.fontFamily('heading', 'normal'),
             },
             title: 'Details',
             headerTitleStyle: {
-              ...utils.fontFamily('normal'),
+              ...utils.fontFamily('heading', 'normal'),
             },
           }}
         />

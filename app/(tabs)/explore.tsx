@@ -55,7 +55,7 @@ const Explore = () => {
     <AppLayouts>
       <View style={styles.container}>
         <SearchBar onSearch={handleSearch} onBadgeSelect={handleBadgeSelect} />
-        <CustomCardSlider workouts={searchResult} orientation='none' />
+        <CustomCardSlider workouts={searchResult} orientation='vertical' />
       </View>
     </AppLayouts>
   );
@@ -65,6 +65,7 @@ export default Explore;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 16,
   },
 });

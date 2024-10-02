@@ -38,8 +38,8 @@ const SearchBar = ({
   };
 
   return (
-    <>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View style={styles.inputContainer}>
         <Icon name='search1' size={20} style={styles.icon} />
         <TextInput
           placeholder={placeholder}
@@ -56,7 +56,7 @@ const SearchBar = ({
         )}
       </View>
       <BadgeCoursel onSelect={onBadgeSelect} />
-    </>
+    </View>
   );
 };
 
@@ -64,6 +64,10 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    maxHeight: 120,
+  },
+  inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -80,7 +84,6 @@ const styles = StyleSheet.create({
     ...utils.margin('sm', 'left'),
     ...utils.textColor('background', '500'),
   },
-
   icon: {
     ...utils.textColor('background', '400'),
   },

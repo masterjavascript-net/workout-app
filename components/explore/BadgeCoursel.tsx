@@ -28,7 +28,7 @@ const Badge = ({
         ...styles.badgeContainer,
         ...(isSelected ? styles.selectedBadge : {}),
       }}
-      onPress={() => onToggleSelect(name)} // Rozet seçimini toggle etme
+      onPress={() => onToggleSelect(name)} //Rozet seçimini toggle etme
     >
       <Text style={styles.badgeText}>{name}</Text>
     </Pressable>
@@ -67,7 +67,7 @@ const BadgeCoursel = ({
           isSelected={selectedBadges.includes(item.name)}
         />
       )}
-      style={styles.badgesContainer}
+      contentContainerStyle={styles.badgesContainer}
       horizontal
       showsHorizontalScrollIndicator={false}
     />
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   badgesContainer: {
     flexDirection: 'row',
     paddingVertical: 16,
+    alignItems: 'flex-start',
   },
   badgeContainer: {
     borderWidth: 1,
@@ -96,6 +97,7 @@ const styles = StyleSheet.create({
     ...utils.borderColor('primary', '200'),
   },
   badgeText: {
+    ...utils.fontFamily('heading', 'bold'),
     ...utils.textColor('background', '500'),
   },
 });

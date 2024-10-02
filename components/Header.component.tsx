@@ -50,18 +50,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // ...utils.backgroundColor("background", "100"),
+    ...utils.margin('lg', 'bottom'),
+    // ...utils.backgroundColor('background', '100'),
+    // backgroundColor: 'red',
   },
   subtitle: {
     ...utils.textColor('background', '500'),
     ...utils.fontSize('text', 'medium'),
     ...utils.margin('xs', 'bottom'),
-    ...utils.fontFamily('normal'),
+    ...utils.fontFamily('text', 'bold'),
   },
   title: {
     color: '#fff',
     ...utils.fontSize('heading', 'h2'),
-    ...utils.fontFamily('bold'),
+    ...utils.fontFamily('heading', 'bold'),
   },
   profile: {
     width: 48,

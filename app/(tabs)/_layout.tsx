@@ -15,7 +15,7 @@ export default function TabLayout() {
           paddingTop: 10,
         },
         tabBarLabelStyle: {
-          ...utils.fontFamily('normal'),
+          ...utils.fontFamily('text', 'normal'),
         },
       }}
     >

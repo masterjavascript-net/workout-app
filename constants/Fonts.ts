@@ -36,12 +36,11 @@ export const fontSize: FontSize = {
   },
 };
 
-export type FontFamily = {
+export type FontWeight = {
   normal: string;
   bold: string;
 };
-
-export const fontFamily: FontFamily = {
-  normal: "Antonio_400Regular",
-  bold: "Antonio_700Bold",
+export type FontType = {
+  heading: string;
+  text: string;
 };

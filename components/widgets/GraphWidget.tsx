@@ -38,7 +38,8 @@ const GraphWidget = () => {
         height: 'auto',
         ...utils.borderRadius('lg'),
         ...utils.backgroundColor('background', '200'),
-        ...utils.margin('lg', 'top'),
+        ...utils.margin('md', 'top'),
+        ...utils.margin('md', 'bottom'),
         ...utils.padding('md'),
         flexDirection: 'column',
       }}
@@ -54,7 +55,7 @@ const GraphWidget = () => {
           style={{
             ...utils.fontSize('text', 'medium'),
             ...utils.textColor('background', '600'),
-            ...utils.fontFamily('normal'),
+            ...utils.fontFamily('text', 'bold'),
             width: 'auto',
           }}
         >
@@ -81,7 +82,7 @@ const GraphWidget = () => {
                     style={{
                       ...utils.fontSize('text', 'small'),
                       ...utils.textColor('background', '600'),
-                      ...utils.fontFamily('normal'),
+                      ...utils.fontFamily('text', 'bold'),
                     }}
                   >
                     {selectedItem || 'Select Time Period'}

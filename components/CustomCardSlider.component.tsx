@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
   card: {
     overflow: 'hidden',
     ...utils.borderRadius('lg'),
-    ...utils.margin('lg', 'top'),
+    ...utils.margin('md', 'top'),
+    ...utils.margin('lg', 'bottom'),
     ...utils.margin('md', 'right'),
   },
   cardImage: {
@@ -125,14 +126,14 @@ const styles = StyleSheet.create({
     ...utils.margin('md', 'bottom'),
     ...utils.textColor('background', '600'),
     ...utils.fontSize('heading', 'h5'),
-    ...utils.fontFamily('bold'),
+    ...utils.fontFamily('heading', 'bold'),
     position: 'absolute',
     top: 15,
     left: 10,
   },
   infoCard: {
     ...utils.textColor('primary', '500'),
-    ...utils.fontFamily('normal'),
+    ...utils.fontFamily('text', 'normal'),
     ...utils.fontSize('text', 'small'),
   },
 });
