@@ -21,12 +21,12 @@ export type Colors = {
 
 export const colors: Colors = {
   background: {
-    100: '#0C0C0C',
-    200: '#10141C',
-    300: '#2C2E34',
-    400: '#777B83',
-    500: '#C6C8CD',
-    600: '#FFFFFF',
+    100: '#191725', //okay
+    200: '#1D1D30', //okay
+    300: '#333347', //borders
+    400: '#4B4B5E', //icons
+    500: '#9A9BA3', //small texts
+    600: '#FFFFFF', //texts
   },
   primary: {
     100: '#303A00', // Darkest shade

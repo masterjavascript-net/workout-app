@@ -49,7 +49,7 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
             gap: 5,
           }}
         >
-          <Icon name="dumbbell" size={14} color={colors.primary['500']} />
+          <Icon name='dumbbell' size={14} color={colors.primary['500']} />
           <Text style={styles.infoCard}>{workout.exerciseCount} Exercises</Text>
         </View>
       </View>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute', // Image takes up the entire card
-    resizeMode: 'cover', // Image is centered
+    objectFit: 'cover', // Image is centered
   },
   overlay: {
     flex: 1,

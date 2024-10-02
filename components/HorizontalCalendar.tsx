@@ -93,7 +93,7 @@ const HorizontalCalendar = () => {
   useEffect(() => {
     if (flatListRef.current) {
       flatListRef.current.scrollToIndex({
-        index: moment().date() - 4,
+        index: moment().date() - 2,
         animated: true,
       });
     }
