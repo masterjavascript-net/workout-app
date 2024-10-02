@@ -37,7 +37,7 @@ const BarGraphs = ({
         },
         propsForVerticalLabels: {
           fontSize: 12,
-          ...utils.fontFamily('normal'),
+          ...utils.fontFamily('text', 'normal'),
         },
       }}
     />

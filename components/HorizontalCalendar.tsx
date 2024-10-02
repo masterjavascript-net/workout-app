@@ -28,7 +28,7 @@ const DateBox = ({
         paddingHorizontal: 10,
         ...utils.borderRadius('md'),
         height: 55,
-        width: 44,
+        width: 50,
         gap: 3,
       }}
     >
@@ -40,7 +40,7 @@ const DateBox = ({
               : colors.background['500'],
           fontWeight: 500,
           fontSize: 14,
-          ...utils.fontFamily('bold'),
+          ...utils.fontFamily('text', 'bold'),
         }}
       >
         {weekDay}
@@ -53,7 +53,7 @@ const DateBox = ({
               : colors.background['400'],
           fontWeight: 700,
           fontSize: 16,
-          ...utils.fontFamily('normal'),
+          ...utils.fontFamily('heading', 'bold'),
         }}
       >
         {day}
@@ -144,6 +144,6 @@ const styles = StyleSheet.create({
   flatListContainer: {
     height: 70,
     alignItems: 'center',
-    ...utils.margin('md', 'top'),
+    ...utils.margin('md', 'bottom'),
   },
 });
