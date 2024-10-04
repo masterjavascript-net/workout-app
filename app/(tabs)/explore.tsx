@@ -66,6 +66,6 @@ export default Explore;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    paddingHorizontal: 16,
   },
 });

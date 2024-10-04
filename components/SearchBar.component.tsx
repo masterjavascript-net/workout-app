@@ -2,7 +2,7 @@ import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import utils from '@/constants/Utils';
-import BadgeCoursel from './explore/BadgeCoursel';
+import BadgeList from './explore/BadgeList';
 
 interface SearchBarProps {
   onSearch: (input: string) => void; // onSearch fonksiyonunun tipi
@@ -55,7 +55,7 @@ const SearchBar = ({
           </TouchableOpacity>
         )}
       </View>
-      <BadgeCoursel onSelect={onBadgeSelect} />
+      <BadgeList onSelect={onBadgeSelect} />
     </View>
   );
 };
@@ -63,10 +63,7 @@ const SearchBar = ({
 export default SearchBar;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    maxHeight: 120,
-  },
+  container: {},
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

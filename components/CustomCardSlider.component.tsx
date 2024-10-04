@@ -99,13 +99,15 @@ const CustomCardSlider = ({ workouts, orientation }: CustomCardSliderProps) => {
 export default CustomCardSlider;
 
 const styles = StyleSheet.create({
-  cardSliderContainer: {},
+  cardSliderContainer: {
+    flex: 1,
+  },
 
   card: {
     overflow: 'hidden',
     ...utils.borderRadius('lg'),
     ...utils.margin('md', 'top'),
-    ...utils.margin('lg', 'bottom'),
+    ...utils.margin('md', 'bottom'),
     ...utils.margin('md', 'right'),
   },
   cardImage: {

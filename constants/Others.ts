@@ -41,3 +41,14 @@ export const exercises: Exercise[] = [
     image: 'https://miro.medium.com/v2/resize:fit:1400/0*1z3rvZBw4YGD1d91',
   },
 ];
+
+export const badges = [
+  { id: 1, name: 'Chest' },
+  { id: 2, name: 'Biceps' },
+  { id: 3, name: 'Triceps' },
+  { id: 4, name: 'Shoulders' },
+  { id: 5, name: 'Back' },
+  { id: 6, name: 'Leg' },
+  { id: 7, name: 'ABS' },
+  { id: 8, name: 'Wrists' },
+];
