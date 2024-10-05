@@ -8,9 +8,9 @@ import {
   Pressable,
 } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import { workouts } from './(tabs)';
+
 import { useNavigation } from '@react-navigation/native';
-import { exercises } from '@/constants/Others';
+import { exercises, workouts } from '@/constants/DataExamples';
 import StickyTopbar from '@/components/details/subcomponents/StickyTopbar.component';
 import HeaderSection from '@/components/details/subcomponents/HeaderSection.component';
 import AccordionItem from '@/components/details/subcomponents/AccordionItem.component';

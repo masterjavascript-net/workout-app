@@ -8,8 +8,9 @@ type GeneralAppStore = {
   curenntLanguage: 'en' | 'az' | 'system';
   changeLanguage: (language: string) => void;
 
-  currentWorkoutDay: number;
-  setCurrentWorkoutDay: (day: number) => void;
+  selectedWorkoutDay: number;
+  setSelectedWorkoutDay: (day: number) => void;
+  resetWorkoutDay: () => void;
 };
 
 export const useGeneralAppStore = create<GeneralAppStore>((set) => ({
@@ -23,8 +24,9 @@ export const useGeneralAppStore = create<GeneralAppStore>((set) => ({
     set({ curenntLanguage: language as 'en' | 'az' | 'system' });
   },
 
-  currentWorkoutDay: moment().date(),
-  setCurrentWorkoutDay: (day) => {
-    set({ currentWorkoutDay: day });
+  selectedWorkoutDay: moment().date(),
+  setSelectedWorkoutDay: (day) => {
+    set({ selectedWorkoutDay: day });
   },
+  resetWorkoutDay: () => set({ selectedWorkoutDay: moment().date() }),
 }));

@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import { Exercise } from '@/constants/Others';
+import { Exercise } from '@/constants/DataExamples';
 import Icon from 'react-native-vector-icons/Ionicons';
 import utils from '@/constants/Utils';
 

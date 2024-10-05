@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import utils from '@/constants/Utils';
-import { badges } from '@/constants/Others';
+import { badges } from '@/constants/DataExamples';
 
 const Badge = ({
   name,

@@ -9,35 +9,34 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 const DateBox = ({
   day,
   weekDay,
-  selectedDay,
-  setSelectedDay,
+  dateOfToday,
+  selectedWorkoutDay,
+  setSelectedWorkoutDay,
 }: {
   day: number;
   weekDay: string;
-  selectedDay: number | null;
-  setSelectedDay: (day: number) => void;
+  dateOfToday: number;
+  selectedWorkoutDay: number | null;
+  setSelectedWorkoutDay: (day: number) => void;
 }) => {
+  const isToday = day === dateOfToday;
+  const isSelected = day === selectedWorkoutDay && day !== dateOfToday;
   return (
     <Pressable
-      onPress={() => setSelectedDay(day)}
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor:
-          selectedDay === day ? colors.primary['400'] : 'transparent',
-        paddingHorizontal: 10,
-        ...utils.borderRadius('md'),
-        height: 55,
-        width: 50,
-        gap: 3,
-      }}
+      onPress={() => setSelectedWorkoutDay(day)}
+      style={[
+        styles.dateBox,
+        isSelected ? styles.selectedDateBox : {},
+        isToday ? styles.todayDateBox : {},
+      ]}
     >
       <Text
         style={{
-          color:
-            selectedDay === day
-              ? colors.background['100']
-              : colors.background['500'],
+          color: isToday
+            ? colors.background['100']
+            : isSelected
+            ? colors.background['600']
+            : colors.background['500'],
           fontWeight: 500,
           fontSize: 14,
           ...utils.fontFamily('text', 'bold'),
@@ -47,10 +46,11 @@ const DateBox = ({
       </Text>
       <Text
         style={{
-          color:
-            selectedDay === day
-              ? colors.background['100']
-              : colors.background['400'],
+          color: isToday
+            ? colors.background['100']
+            : isSelected
+            ? colors.background['500']
+            : colors.background['400'],
           fontWeight: 700,
           fontSize: 16,
           ...utils.fontFamily('heading', 'bold'),
@@ -65,6 +65,7 @@ const DateBox = ({
 const HorizontalCalendar = () => {
   const segments = useSegments();
   const currentDate = moment().toDate();
+  const dateOfToday = currentDate.getDate();
   const maxDateForCurrentMonth = moment(currentDate).endOf('month').toDate();
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const flatListRef = useRef<FlatList | null>(null);
@@ -76,13 +77,12 @@ const HorizontalCalendar = () => {
     return dates;
   };
 
-  const {
-    currentWorkoutDay: selectedDay,
-    setCurrentWorkoutDay: setSelectedDay,
-  } = useGeneralAppStore((state) => ({
-    currentWorkoutDay: state.currentWorkoutDay,
-    setCurrentWorkoutDay: state.setCurrentWorkoutDay,
-  }));
+  const { selectedWorkoutDay, setSelectedWorkoutDay, resetWorkoutDay } =
+    useGeneralAppStore((state) => ({
+      selectedWorkoutDay: state.selectedWorkoutDay,
+      setSelectedWorkoutDay: state.setSelectedWorkoutDay,
+      resetWorkoutDay: state.resetWorkoutDay,
+    }));
 
   const getWeekDay = (date: number) => {
     const newDate = new Date(currentDate);
@@ -91,9 +91,10 @@ const HorizontalCalendar = () => {
   };
 
   useEffect(() => {
+    resetWorkoutDay();
     if (flatListRef.current) {
       flatListRef.current.scrollToIndex({
-        index: moment().date() - 2,
+        index: moment().date() - 4,
         animated: true,
       });
     }
@@ -129,8 +130,9 @@ const HorizontalCalendar = () => {
           <DateBox
             day={item}
             weekDay={getWeekDay(item)}
-            selectedDay={selectedDay}
-            setSelectedDay={setSelectedDay}
+            dateOfToday={dateOfToday}
+            selectedWorkoutDay={selectedWorkoutDay}
+            setSelectedWorkoutDay={setSelectedWorkoutDay}
           />
         )}
       />
@@ -145,5 +147,23 @@ const styles = StyleSheet.create({
     height: 70,
     alignItems: 'center',
     ...utils.margin('md', 'bottom'),
+  },
+  dateBox: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 55,
+    width: 52,
+    gap: 3,
+    paddingHorizontal: 10,
+    ...utils.borderRadius('md'),
+    backgroundColor: 'transparent',
+  },
+  selectedDateBox: {
+    color: '#fff',
+    borderColor: colors.primary['300'],
+    borderWidth: 1,
+  },
+  todayDateBox: {
+    backgroundColor: colors.primary['400'],
   },
 });
