@@ -2,9 +2,9 @@ import AppLayouts from '@/components/AppLayouts.layout';
 import CustomCardSlider from '@/components/CustomCardSlider.component';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Workout, workouts } from '.';
 import Fuse from 'fuse.js';
 import SearchBar from '@/components/SearchBar.component';
+import { Workout, workouts } from '@/constants/DataExamples';
 
 const allWorkouts = [...workouts];
 
