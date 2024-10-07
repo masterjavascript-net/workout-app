@@ -1,4 +1,4 @@
-import { User } from '@/app/(tabs)';
+import { User } from '@/constants/DataExamples';
 import utils from '@/constants/Utils';
 import { addElipsis } from '@/textUtils';
 import { Image } from 'expo-image';
