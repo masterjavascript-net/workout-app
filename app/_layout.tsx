@@ -25,29 +25,31 @@ export default function RootLayout() {
     <ThemeProvider value={NavigationDarkTheme}>
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='details' options={{ headerShown: false }} />
         <Stack.Screen
-          name='profile'
+          name='settings'
           options={{
             headerShown: true,
-            headerBackTitle: 'Home',
-            headerBackTitleStyle: {
-              ...utils.fontFamily('heading', 'normal'),
-            },
-            title: 'Profile',
+            title: 'Settings',
+            headerBackTitle: 'Profile',
             headerTitleStyle: {
+              ...utils.fontFamily('heading', 'bold'),
+            },
+            headerBackTitleStyle: {
               ...utils.fontFamily('heading', 'normal'),
             },
           }}
         />
         <Stack.Screen
-          name='details'
+          name='bodyTransformations'
           options={{
-            headerShown: false,
-            headerBackTitleStyle: {
-              ...utils.fontFamily('heading', 'normal'),
-            },
-            title: 'Details',
+            headerShown: true,
+            title: 'Body Transformations',
+            headerBackTitle: 'Profile',
             headerTitleStyle: {
+              ...utils.fontFamily('heading', 'bold'),
+            },
+            headerBackTitleStyle: {
               ...utils.fontFamily('heading', 'normal'),
             },
           }}

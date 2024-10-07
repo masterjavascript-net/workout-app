@@ -1,5 +1,5 @@
-import { Workout } from '@/app/(tabs)';
 import { colors } from '@/constants/Colors';
+import { Workout } from '@/constants/DataExamples';
 import utils from '@/constants/Utils';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';

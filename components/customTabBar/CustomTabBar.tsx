@@ -2,11 +2,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { BlurView } from 'expo-blur';
 import TabButton from './TabButton';
-import { FontAwesome6, Ionicons, SimpleLineIcons } from '@expo/vector-icons';
+import {
+  FontAwesome6,
+  Ionicons,
+  SimpleLineIcons,
+  FontAwesome,
+} from '@expo/vector-icons';
+
 import { colors } from '@/constants/Colors';
 import utils from '@/constants/Utils';
 
-type RouteName = 'index' | 'explore' | 'builder' | 'settings';
+type RouteName = 'index' | 'explore' | 'builder' | 'profile';
 const getIcon = (routeName: RouteName, color: string) => {
   switch (routeName) {
     case 'index':
@@ -15,8 +21,8 @@ const getIcon = (routeName: RouteName, color: string) => {
       return <SimpleLineIcons name='globe' size={20} color={color} />;
     case 'builder':
       return <FontAwesome6 name='dumbbell' size={20} color={color} />;
-    case 'settings':
-      return <Ionicons name='settings' size={20} color={color} />;
+    case 'profile':
+      return <FontAwesome name='user-o' size={20} color={color} />;
     default:
       return null;
   }
