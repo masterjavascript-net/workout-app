@@ -4,7 +4,7 @@ import CustomSectionHeader from '@/components/CustomSectionHeader';
 import Header from '@/components/Header.component';
 import HorizontalCalendar from '@/components/HorizontalCalendar';
 import GraphWidget from '@/components/widgets/GraphWidget';
-import { user, workouts } from '@/constants/DataExamples';
+import { user, workoutPlans } from '@/constants/DataExamples';
 import { useGeneralAppStore } from '@/stores/useGeneralAppStore';
 import { useFonts } from 'expo-font';
 import { router } from 'expo-router';
@@ -15,26 +15,29 @@ function getContent(selectedWorkoutDay: number | null) {
   if (selectedWorkoutDay === moment().date()) {
     return (
       <>
-        <CustomSectionHeader
+        {/* <CustomSectionHeader
           header='Widgets'
           iconName='setting'
           onPress={() => {}}
-        />
-        <GraphWidget />
+        /> */}
+        {/* <GraphWidget /> */}
         <CustomSectionHeader
           header='Recommended Workouts'
           // iconName="arrow-right-long"
           linkText='See more'
           onPress={() => {}}
         />
-        <CustomCardSlider workouts={workouts} orientation='horizontal' />
+        <CustomCardSlider
+          workoutPlans={workoutPlans}
+          orientation='horizontal'
+        />
         <CustomSectionHeader
           header='My Workouts'
           // iconName="arrow-right-long"
           linkText='See more'
           onPress={() => {}}
         />
-        <CustomCardSlider workouts={workouts} orientation='none' />
+        <CustomCardSlider workoutPlans={workoutPlans} orientation='none' />
       </>
     );
   } else {

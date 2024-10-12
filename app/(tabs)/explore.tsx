@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Fuse from 'fuse.js';
 import SearchBar from '@/components/SearchBar.component';
-import { Workout, workouts } from '@/constants/DataExamples';
+import { WorkoutPlan, workoutPlans } from '@/constants/DataExamples';
 
-const allWorkouts = [...workouts];
+const allWorkouts = [...workoutPlans];
 
 const Explore = () => {
-  const [searchResult, setSearchResult] = useState<Workout[]>(allWorkouts);
+  const [searchResult, setSearchResult] = useState<WorkoutPlan[]>(allWorkouts);
   const [searchText, setSearchText] = useState('');
   const [selectedBadges, setSelectedBadges] = useState<string[]>([]);
 
@@ -55,7 +55,7 @@ const Explore = () => {
     <AppLayouts>
       <View style={styles.container}>
         <SearchBar onSearch={handleSearch} onBadgeSelect={handleBadgeSelect} />
-        <CustomCardSlider workouts={searchResult} orientation='vertical' />
+        <CustomCardSlider workoutPlans={searchResult} orientation='vertical' />
       </View>
     </AppLayouts>
   );
