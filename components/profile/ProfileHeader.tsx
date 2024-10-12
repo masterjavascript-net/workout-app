@@ -35,7 +35,7 @@ const ProfileHeader = () => {
           <Feather name='settings' size={28} color={colors.background['600']} />
         </TouchableOpacity>
         <View style={styles.profileContainer}>
-          <Image source={user.avatar} style={styles.profileImg} />
+          <Image source={user.profileImage} style={styles.profileImg} />
           <Text style={styles.profileName}>Eljan Rustamov</Text>
           <Text style={styles.profileSubtitle}>{moment().format('L')}</Text>
         </View>

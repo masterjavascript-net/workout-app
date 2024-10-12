@@ -1,5 +1,5 @@
 import { colors } from '@/constants/Colors';
-import { Workout } from '@/constants/DataExamples';
+import { WorkoutPlan } from '@/constants/DataExamples';
 import utils from '@/constants/Utils';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
@@ -14,11 +14,11 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface CustomCardProps {
-  workout: Workout;
+  workoutPlan: WorkoutPlan;
   isHorizontal: boolean;
 }
 
-const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
+const CustomCard = ({ workoutPlan, isHorizontal }: CustomCardProps) => {
   return (
     <TouchableOpacity
       style={[
@@ -30,18 +30,18 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
       onPress={() =>
         router.push({
           pathname: '/details',
-          params: { workoutId: workout.id },
+          params: { workoutId: workoutPlan.id },
         })
       }
     >
       <Image
-        source={workout.imageUrl}
+        source={workoutPlan.backgroundImage}
         style={{
           ...styles.cardImage,
         }}
       />
       <View style={styles.overlay}>
-        <Text style={styles.title}>{workout.title}</Text>
+        <Text style={styles.title}>{workoutPlan.name}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -50,7 +50,9 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
           }}
         >
           <Icon name='dumbbell' size={14} color={colors.primary['500']} />
-          <Text style={styles.infoCard}>{workout.exerciseCount} Exercises</Text>
+          <Text style={styles.infoCard}>
+            {workoutPlan.exercises.length} Exercises
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -58,11 +60,14 @@ const CustomCard = ({ workout, isHorizontal }: CustomCardProps) => {
 };
 
 interface CustomCardSliderProps {
-  workouts: Workout[];
+  workoutPlans: WorkoutPlan[];
   orientation: 'horizontal' | 'vertical' | 'none';
 }
 
-const CustomCardSlider = ({ workouts, orientation }: CustomCardSliderProps) => {
+const CustomCardSlider = ({
+  workoutPlans,
+  orientation,
+}: CustomCardSliderProps) => {
   const isHorizontal = orientation === 'horizontal';
 
   return (
@@ -73,19 +78,19 @@ const CustomCardSlider = ({ workouts, orientation }: CustomCardSliderProps) => {
             paddingBottom: 25,
           }}
         >
-          {workouts.map((workout) => (
+          {workoutPlans.map((workoutPlan) => (
             <CustomCard
-              workout={workout}
+              workoutPlan={workoutPlan}
               isHorizontal={isHorizontal}
-              key={workout.id}
+              key={workoutPlan.id}
             />
           ))}
         </View>
       ) : (
         <FlatList
-          data={workouts}
+          data={workoutPlans}
           renderItem={({ item }) => (
-            <CustomCard workout={item} isHorizontal={isHorizontal} />
+            <CustomCard workoutPlan={item} isHorizontal={isHorizontal} />
           )}
           horizontal={isHorizontal}
           showsHorizontalScrollIndicator={false}

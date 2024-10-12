@@ -36,7 +36,7 @@ const Header = ({ user, onPressAvatar }: HeaderProps) => {
       </View>
       <View>
         <TouchableOpacity onPress={onPressAvatar}>
-          <Image source={user.avatar} style={styles.profile} />
+          <Image source={user.profileImage} style={styles.profile} />
         </TouchableOpacity>
       </View>
     </View>
