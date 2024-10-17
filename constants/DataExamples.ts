@@ -48,9 +48,10 @@ export type WorkoutPlan = {
   category: string;
 };
 
-type Exercise = {
+export type Exercise = {
   id: string;
   name: string;
+  backgroundImage: string;
   muscleGroup: string;
   sets: number;
   reps: number;
@@ -78,6 +79,8 @@ export const exercises: Exercise[] = [
     sets: 4,
     reps: 8,
     weight: 80,
+    backgroundImage:
+      'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlcmNpc2V8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: '2',
@@ -86,6 +89,8 @@ export const exercises: Exercise[] = [
     sets: 3,
     reps: 12,
     weight: 30,
+    backgroundImage:
+      'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlcmNpc2V8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: '3',
@@ -94,6 +99,8 @@ export const exercises: Exercise[] = [
     sets: 4,
     reps: 10,
     weight: 100,
+    backgroundImage:
+      'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlcmNpc2V8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: '4',
@@ -102,6 +109,8 @@ export const exercises: Exercise[] = [
     sets: 3,
     reps: 8,
     weight: 120,
+    backgroundImage:
+      'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlcmNpc2V8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: '5',
@@ -110,6 +119,8 @@ export const exercises: Exercise[] = [
     sets: 4,
     reps: 10,
     weight: 50,
+    backgroundImage:
+      'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlcmNpc2V8ZW58MHx8MHx8fDA%3D',
   },
 ];
 
