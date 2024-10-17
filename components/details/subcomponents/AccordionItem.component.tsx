@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import utils from '@/constants/Utils';
 
 const AccordionItem = (item: Exercise) => {
-  const [selectedItem, setSelectedItem] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const handleSelect = () => {
     setSelectedItem(selectedItem === item.id ? null : item.id);
@@ -35,12 +35,13 @@ const AccordionItem = (item: Exercise) => {
     >
       <Pressable onPress={() => handleSelect()}>
         <View style={styles.exerciseItem} key={item.id}>
-          <Image source={{ uri: item.image }} style={styles.exerciseImage} />
+          <Image
+            source={{ uri: item.backgroundImage }}
+            style={styles.exerciseImage}
+          />
           <View style={styles.exerciseInfo}>
             <Text style={styles.exerciseName}>{item.name}</Text>
-            <Text style={styles.exerciseExtraInfo}>
-              💪🏽 {item.setCount} sets
-            </Text>
+            <Text style={styles.exerciseExtraInfo}>💪🏽 {item.sets} sets</Text>
           </View>
           <TouchableOpacity>
             <Icon name='play-outline' size={25} color='#fff' />
@@ -52,23 +53,23 @@ const AccordionItem = (item: Exercise) => {
         <View style={styles.dropdownContainer}>
           <View style={{ flexDirection: 'row', gap: 15 }}>
             <Text>1</Text>
-            <Text>{item.repCount} Reps</Text>
+            <Text>{item.reps} Reps</Text>
           </View>
           <View style={{ flexDirection: 'row', gap: 15 }}>
             <Text>X</Text>
-            <Text>00:{item.restTime} REST</Text>
+            <Text>00:{item.weight} REST</Text>
           </View>
           <View style={{ flexDirection: 'row', gap: 15 }}>
             <Text>2</Text>
-            <Text>{item.repCount} Reps</Text>
+            <Text>{item.reps} Reps</Text>
           </View>
           <View style={{ flexDirection: 'row', gap: 15 }}>
             <Text>X</Text>
-            <Text>00:{item.restTime} REST</Text>
+            <Text>00:{item.weight} REST</Text>
           </View>
           <View style={{ flexDirection: 'row', gap: 15 }}>
             <Text>3</Text>
-            <Text>{item.repCount} Reps</Text>
+            <Text>{item.reps} Reps</Text>
           </View>
         </View>
       )}

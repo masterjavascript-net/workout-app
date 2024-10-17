@@ -10,14 +10,14 @@ import {
 import { useLocalSearchParams } from 'expo-router';
 
 import { useNavigation } from '@react-navigation/native';
-import { exercises, workouts } from '@/constants/DataExamples';
+import { exercises, workoutPlans } from '@/constants/DataExamples';
 import StickyTopbar from '@/components/details/subcomponents/StickyTopbar.component';
 import HeaderSection from '@/components/details/subcomponents/HeaderSection.component';
 import AccordionItem from '@/components/details/subcomponents/AccordionItem.component';
 
 const Details = () => {
   const { workoutId } = useLocalSearchParams();
-  const selectedWorkout = workouts.find(
+  const selectedWorkout = workoutPlans.find(
     (workout) => workout.id === String(workoutId)
   );
   const navigation = useNavigation();
@@ -51,8 +51,8 @@ const Details = () => {
             )}
           >
             <HeaderSection
-              title={selectedWorkout.title}
-              exerciseCount={selectedWorkout.exerciseCount}
+              title={selectedWorkout.name}
+              exerciseCount={selectedWorkout.exercises.length}
               onBackPress={() => navigation.goBack()}
             />
             <View style={styles.bodySection}>
